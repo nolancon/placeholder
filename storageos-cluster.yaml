@@ -1,0 +1,28 @@
+apiVersion: storageos.com/v1
+kind: StorageOSCluster
+metadata:
+  name: example-storageoscluster
+  namespace: "default"
+spec:
+  secretRefName: "storageos-api"
+  secretRefNamespace: "default"
+  namespace: "kube-system"
+  k8sDistro: "kubecover"
+  # storageClassName: fast
+  # tlsEtcdSecretRefName:
+  # tlsEtcdSecretRefNamespace:
+  disableTelemetry: true
+  images:
+    nodeContainer: soegarots/node:latest
+    apiManagerContainer: storageos/api-manager:develop
+  #   initContainer:
+  #   csiNodeDriverRegistrarContainer:
+  #   csiClusterDriverRegistrarContainer:
+  #   csiExternalProvisionerContainer:
+  #   csiExternalAttacherContainer:
+  #   csiExternalResizerContainer:
+  #   csiLivenessProbeContainer:
+  #   kubeSchedulerContainer:
+  kvBackend:
+    address: "storageos-etcd-client.storageos-etcd:2379"
+  debug: true
