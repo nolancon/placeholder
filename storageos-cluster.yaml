@@ -24,5 +24,5 @@ spec:
   #   csiLivenessProbeContainer:
   #   kubeSchedulerContainer:
   kvBackend:
-    address: "storageos-etcd-client.storageos-etcd:2379"
+    address: "storageos-etcd.eco-system:2379"
   debug: true
