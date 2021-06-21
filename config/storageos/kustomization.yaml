@@ -1,0 +1,3 @@
+resources:
+- storageos-cluster.yaml
+- storageos-operator.yaml
