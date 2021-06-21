@@ -1,3 +1,2 @@
 resources:
-- etcd-operator.yaml        
 - etcd-cluster.yaml
