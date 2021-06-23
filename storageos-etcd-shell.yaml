@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storageos-etcd-shell
+  namespace: default
+spec:
+  containers:
+    - name: storageos-etcd-shell
+      image: nixery.dev/shell/etcd
+      command: [ "sleep" ]
+      args: [ "infinity" ]
