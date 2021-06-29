@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: storageos-api
-  namespace: storageos
+  namespace: storageos-system
   labels:
     app: storageos
 data:
@@ -14,7 +14,7 @@ apiVersion: storageos.com/v1
 kind: StorageOSCluster
 metadata:
   name: storageoscluster-sample
-  namespace: storageos
+  namespace: storageos-system
 spec:
   secretRefName: storageos-api
   storageClassName: storageos-sc
