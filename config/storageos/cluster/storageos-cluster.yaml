@@ -1,28 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: storageos-api
+  namespace: storageos
+  labels:
+    app: storageos
+data:
+  # echo -n '<secret>' | base64
+  username: c3RvcmFnZW9z
+  password: c3RvcmFnZW9z
+---  
 apiVersion: storageos.com/v1
 kind: StorageOSCluster
 metadata:
-  name: example-storageoscluster
-  namespace: "default"
+  name: storageoscluster-sample
+  namespace: storageos
 spec:
-  secretRefName: "storageos-api"
-  secretRefNamespace: "default"
-  namespace: "kube-system"
-  k8sDistro: "kubecover"
-  # storageClassName: fast
-  # tlsEtcdSecretRefName:
-  # tlsEtcdSecretRefNamespace:
-  disableTelemetry: true
-  images:
-    nodeContainer: soegarots/node:latest
-    apiManagerContainer: storageos/api-manager:develop
-  #   initContainer:
-  #   csiNodeDriverRegistrarContainer:
-  #   csiClusterDriverRegistrarContainer:
-  #   csiExternalProvisionerContainer:
-  #   csiExternalAttacherContainer:
-  #   csiExternalResizerContainer:
-  #   csiLivenessProbeContainer:
-  #   kubeSchedulerContainer:
+  secretRefName: storageos-api
+  storageClassName: storageos-sc
   kvBackend:
-    address: "storageos-etcd.eco-system:2379"
-  debug: true
+    address: "<etcd-address>"
