@@ -759,6 +759,7 @@ spec:
         - configMapRef:
             name: storageos-related-image-config
         image: storageos/operator:test
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /healthz
