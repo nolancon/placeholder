@@ -758,7 +758,7 @@ spec:
         envFrom:
         - configMapRef:
             name: storageos-related-image-config
-        image: storageos/operator:test
+        image: nolancon/operator:test
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
