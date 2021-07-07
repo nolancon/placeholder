@@ -3422,7 +3422,7 @@ spec:
       containers:
       - args:
         - --enable-leader-election
-        - --proxy-url=eco-proxy.eco-system.svc
+        - --proxy-url=storageos-proxy.storageos-etcd.svc
         command:
         - /manager
         env:
