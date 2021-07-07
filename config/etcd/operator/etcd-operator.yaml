@@ -3428,7 +3428,7 @@ spec:
         env:
         - name: DISABLE_WEBHOOKS
           value: "true"
-        image: nolancon/etcd-cluster-operator-controller:storageos
+        image: storageos/etcd-cluster-operator-controller:develop
         name: manager
         ports:
         - containerPort: 8080
@@ -3463,7 +3463,7 @@ spec:
       containers:
       - args:
         - --api-port=8080
-        image: nolancon/etcd-cluster-operator-proxy:storageos
+        image: storageos/etcd-cluster-operator-proxy:develop
         name: proxy
         resources:
           limits:
