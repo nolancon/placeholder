@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: storageos-etcd
+  name: storageos-etcd-system
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -3160,8 +3160,8 @@ status:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: storageos-leader-election-role
-  namespace: storageos-etcd
+  name: storageos-etcd-leader-election-role
+  namespace: storageos-etcd-system
 rules:
 - apiGroups:
   - ""
@@ -3194,7 +3194,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   creationTimestamp: null
-  name: storageos-manager-role
+  name: storageos-etcd-manager-role
 rules:
 - apiGroups:
   - apps
@@ -3361,37 +3361,37 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: storageos-leader-election-rolebinding
-  namespace: storageos-etcd
+  name: storageos-etcd-leader-election-rolebinding
+  namespace: storageos-etcd-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: storageos-leader-election-role
+  name: storageos-etcd-leader-election-role
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: storageos-etcd
+  namespace: storageos-etcd-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: storageos-manager-rolebinding
+  name: storageos-etcd-manager-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: storageos-manager-role
+  name: storageos-etcd-manager-role
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: storageos-etcd
+  namespace: storageos-etcd-system
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     control-plane: proxy
-  name: storageos-proxy
-  namespace: storageos-etcd
+  name: storageos-etcd-proxy
+  namespace: storageos-etcd-system
 spec:
   ports:
   - name: http
@@ -3405,8 +3405,8 @@ kind: Deployment
 metadata:
   labels:
     control-plane: controller-manager
-  name: storageos-controller-manager
-  namespace: storageos-etcd
+  name: storageos-etcd-controller-manager
+  namespace: storageos-etcd-system
 spec:
   replicas: 1
   selector:
@@ -3448,8 +3448,8 @@ kind: Deployment
 metadata:
   labels:
     control-plane: proxy
-  name: storageos-proxy
-  namespace: storageos-etcd
+  name: storageos-etcd-proxy
+  namespace: storageos-etcd-system
 spec:
   replicas: 1
   selector:
