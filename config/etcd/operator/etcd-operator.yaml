@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: eco-system
+  name: storageos-etcd
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -3160,8 +3160,8 @@ status:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: eco-leader-election-role
-  namespace: eco-system
+  name: storageos-leader-election-role
+  namespace: storageos-etcd
 rules:
 - apiGroups:
   - ""
@@ -3194,7 +3194,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   creationTimestamp: null
-  name: eco-manager-role
+  name: storageos-manager-role
 rules:
 - apiGroups:
   - apps
@@ -3361,37 +3361,37 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: eco-leader-election-rolebinding
-  namespace: eco-system
+  name: storageos-leader-election-rolebinding
+  namespace: storageos-etcd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: eco-leader-election-role
+  name: storageos-leader-election-role
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: eco-system
+  namespace: storageos-etcd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: eco-manager-rolebinding
+  name: storageos-manager-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: eco-manager-role
+  name: storageos-manager-role
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: eco-system
+  namespace: storageos-etcd
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     control-plane: proxy
-  name: eco-proxy
-  namespace: eco-system
+  name: storageos-proxy
+  namespace: storageos-etcd
 spec:
   ports:
   - name: http
@@ -3405,8 +3405,8 @@ kind: Deployment
 metadata:
   labels:
     control-plane: controller-manager
-  name: eco-controller-manager
-  namespace: eco-system
+  name: storageos-controller-manager
+  namespace: storageos-etcd
 spec:
   replicas: 1
   selector:
@@ -3448,8 +3448,8 @@ kind: Deployment
 metadata:
   labels:
     control-plane: proxy
-  name: eco-proxy
-  namespace: eco-system
+  name: storageos-proxy
+  namespace: storageos-etcd
 spec:
   replicas: 1
   selector:

@@ -19,4 +19,4 @@ spec:
   secretRefName: storageos-api
   storageClassName: storageos-sc
   kvBackend:
-    address: "<etcd-address>"
+    address: "storageos-etcd.storageos-etcd:2379"
