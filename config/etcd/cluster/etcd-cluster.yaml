@@ -2,7 +2,7 @@ apiVersion: etcd.improbable.io/v1alpha1
 kind: EtcdCluster
 metadata:
   name: storageos-etcd
-  namespace: storageos-etcd-system
+  namespace: storageos-etcd
 spec:
   replicas: 3
   version: 3.2.28
