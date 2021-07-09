@@ -9,7 +9,7 @@ data:
   # echo -n '<secret>' | base64
   username: c3RvcmFnZW9z
   password: c3RvcmFnZW9z
----  
+---
 apiVersion: storageos.com/v1
 kind: StorageOSCluster
 metadata:
