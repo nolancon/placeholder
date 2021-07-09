@@ -646,7 +646,7 @@ spec:
         envFrom:
         - configMapRef:
             name: storageos-related-image-config
-        image: storageos/operator:test
+        image: storageos/operator:develop
         livenessProbe:
           httpGet:
             path: /healthz
