@@ -4,8 +4,11 @@ metadata:
   name: storageos-etcd-shell
   namespace: default
 spec:
+  restartPolicy: OnFailure      
   containers:
     - name: storageos-etcd-shell
-      image: nixery.dev/shell/etcd
+      image: gcr.io/etcd-development/etcd:v3.5.0
+      # pod completes and is not restarted after 3m, this is in case
+      # the plugin crashes and is unable to delete this pod after health check
       command: [ "sleep" ]
-      args: [ "infinity" ]
+      args: [ "3m" ]
