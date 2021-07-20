@@ -20,6 +20,23 @@ spec:
       limits:
         cpu: 200m
         memory: 200Mi
+    etcdEnv:
+      - name: "HEARTBEAT_INTERVAL"
+        value: "100"
+      - name: "ELECTION_TIMEOUT"
+        value: "5000"
+      - name: "MAX_SNAPSHOTS"
+        value: "10"
+      - name: "MAX_WALS"
+        value: "10"
+      - name: "QUOTA_BACKEND_BYTES"
+        value: "8589934592"
+      - name: "SNAPSHOT_COUNT"
+        value: "100000"
+      - name: "AUTO_COMPACTION_RETENTION"
+        value: "20000"
+      - name: "AUTO_COMPACTION_MODE"
+        value: "revision"
     affinity:
       podAntiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
