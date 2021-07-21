@@ -21,21 +21,21 @@ spec:
         cpu: 200m
         memory: 200Mi
     etcdEnv:
-      - name: "HEARTBEAT_INTERVAL"
+      - name: "ETCD_HEARTBEAT_INTERVAL"
         value: "100"
-      - name: "ELECTION_TIMEOUT"
+      - name: "ETCD_ELECTION_TIMEOUT"
         value: "5000"
-      - name: "MAX_SNAPSHOTS"
+      - name: "ETCD_MAX_SNAPSHOTS"
         value: "10"
-      - name: "MAX_WALS"
+      - name: "ETCD_MAX_WALS"
         value: "10"
-      - name: "QUOTA_BACKEND_BYTES"
+      - name: "ETCD_QUOTA_BACKEND_BYTES"
         value: "8589934592"
-      - name: "SNAPSHOT_COUNT"
+      - name: "ETCD_SNAPSHOT_COUNT"
         value: "100000"
-      - name: "AUTO_COMPACTION_RETENTION"
+      - name: "ETCD_AUTO_COMPACTION_RETENTION"
         value: "20000"
-      - name: "AUTO_COMPACTION_MODE"
+      - name: "ETCD_AUTO_COMPACTION_MODE"
         value: "revision"
     affinity:
       podAntiAffinity:
