@@ -20,3 +20,5 @@ spec:
   storageClassName: storageos-sc
   kvBackend:
     address: "storageos-etcd.storageos-etcd:2379"
+  tlsEtcdSecretRefName: ""
+  tlsEtcdSecretRefNamespace: ""
